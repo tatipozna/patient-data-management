@@ -1,0 +1,15 @@
+:root {
+  --bg: #111827;
+  --card: #1c2338;
+  --card-hover: #252d47;
+  --primary: #6d4aff;
+  --text: #ffffff;
+  --text-secondary: #b8c0d9;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, sans-serif;
+}
