@@ -1,13 +1,14 @@
 import { useState } from "react";
-import type { Patient } from "../types/patient";
+import type { Patient } from "../../types/patient";
+import Button from "../ui/Button";
 
 interface Props {
   patient: Patient;
+  onEdit: (patient: Patient) => void;
 }
 
-function PatientCard({ patient }: Props) {
+function PatientCard({ patient, onEdit }: Props) {
   const [expanded, setExpanded] = useState(false);
-
   return (
     <div
       className="patient-card"
@@ -36,14 +37,27 @@ function PatientCard({ patient }: Props) {
           </div>
         </div>
 
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setExpanded(!expanded);
-          }}
-        >
-          {expanded ? "▲" : "▼"}
-        </button>
+        <div className="patient-actions">
+          <button
+            className="edit-button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onEdit(patient);
+            }}
+          >
+            Edit
+          </button>
+
+          <button
+            className="expand-button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setExpanded(!expanded);
+            }}
+          >
+            {expanded ? "▲" : "▼"}
+          </button>
+        </div>
       </div>
 
       {expanded && (
