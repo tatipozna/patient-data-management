@@ -1,15 +1,18 @@
 import { useState } from "react";
 import type { Patient } from "../types/patient";
 
-
 interface Props {
   patient: Patient;
 }
 
 function PatientCard({ patient }: Props) {
   const [expanded, setExpanded] = useState(false);
+
   return (
-    <div className="patient-card">
+    <div
+      className="patient-card"
+      onClick={() => setExpanded(!expanded)}
+    >
       <div className="patient-header">
         <img
           src={patient.avatar}
@@ -19,25 +22,44 @@ function PatientCard({ patient }: Props) {
               "https://cdn-icons-png.flaticon.com/512/149/149071.png";
           }}
         />
+
         <div className="patient-info">
           <h3>{patient.name}</h3>
-          <p>ID: {patient.id}</p>
+          <div className="patient-meta">
+            <p>
+              <span>ID:</span> {patient.id}
+            </p>
+
+            <p>
+              <span>Created:</span> {new Date(patient.createdAt).toLocaleDateString()}
+            </p>
+          </div>
         </div>
 
-        <button onClick={() => setExpanded(!expanded)}>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setExpanded(!expanded);
+          }}
+        >
           {expanded ? "▲" : "▼"}
         </button>
       </div>
 
       {expanded && (
         <div className="patient-details">
-          <p>{patient.description}</p>
 
-          <a href={patient.website} target="_blank">
-            Website
-          </a>
+          <div className="detail-group">
+            <span>Description</span>
+            <p>{patient.description}</p>
+          </div>
 
-          <p>{patient.createdAt}</p>
+          <div className="detail-group">
+            <a href={patient.website} target="_blank">
+              Visit website
+            </a>
+          </div>
+
         </div>
       )}
     </div>

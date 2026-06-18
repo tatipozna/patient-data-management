@@ -30,6 +30,25 @@ function App() {
   return (
     <div>
       <h1>Patient Data Management</h1>
+
+      <div className="toolbar">
+        <p className="patient-count">
+          {patients.length} patients
+        </p>
+
+        <div className="search-row">
+          <input
+            className="search-bar"
+            placeholder="Search patient..."
+          />
+
+          <select>
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </div>
+      </div>
+
       <div className="patients-container">
         {patients.map((patient) => (
           <PatientCard
