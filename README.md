@@ -15,14 +15,15 @@ The application was built with a component-based architecture and custom reusabl
 * Add new patients
 * Edit existing patients
 * Form validation
-* Toast notifications for successful operations
-* Responsive design for desktop and mobile devices
+* Toast notifications
+* Responsive design
 
 ## Technologies
 
 * React
 * TypeScript
 * Vite
+* ESLint
 * CSS
 
 ## Project Structure
@@ -48,7 +49,7 @@ src/
 ## Installation and Setup
 1. Clone the repository 
 ```bash
-git clone (https://github.com/tatipozna/patient-data-management.git)
+git clone https://github.com/tatipozna/patient-data-management.git
 ```
 
 2. Open the project:
