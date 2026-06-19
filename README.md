@@ -57,11 +57,11 @@ src/
 ```bash
 npm install
 ```
-Run the application:
+4. Run the application:
 ```bash
 npm run dev
 ```
-Build for production:
+5. Build for production:
 
 ```bash
 npm run build
