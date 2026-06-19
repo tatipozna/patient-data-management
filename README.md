@@ -45,20 +45,18 @@ src/
 * Form validation is handled inside the PatientForm component.
 * Patient creation and edition are managed locally since the provided API does not persist changes.
 
-## Installation
+## Installation and Setup
+1. Clone the repository: git clone (https://github.com/tatipozna/patient-data-management.git)
+2. cd patient-data-management
 
-Install dependencies:
-
+### Install dependencies:
 ```bash
 npm install
 ```
-
 Run the application:
-
 ```bash
 npm run dev
 ```
-
 Build for production:
 
 ```bash
