@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Patient } from "../../types/patient";
-import Button from "../ui/Button";
+import "../../styles/patient-card.css";
 
 interface Props {
   patient: Patient;

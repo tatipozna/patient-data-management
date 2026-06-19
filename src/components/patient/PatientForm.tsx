@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../ui/Button";
 import type { Patient } from "../../types/patient";
+import "../../styles/form.css";
 
 interface PatientFormData {
   name: string;
@@ -128,9 +129,6 @@ function PatientForm({
       </div>
 
       <div className="modal-actions">
-        <Button variant="secondary">
-          Cancel
-        </Button>
 
         <Button onClick={handleSubmit}>
           Save Patient

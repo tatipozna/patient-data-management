@@ -5,6 +5,12 @@ import PatientCard from "./components/patient/PatientCard";
 import "./styles/global.css";
 import Modal from "./components/patient/Modal";
 import PatientForm from "./components/patient/PatientForm";
+import Toast from "./components/ui/Toast";
+import SearchBar from "./components/ui/SearchBar";
+import Dropdown from "./components/ui/Dropdown";
+import "./index.css";
+import "./styles/global.css";
+import "./styles/responsive.css";
 
 function App() {
   const [patients, setPatients] = useState<Patient[]>([]);
@@ -12,6 +18,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [sortOrder, setSortOrder] = useState("newest");
   const [showModal, setShowModal] = useState(false);
+  const [message, setMessage] = useState("");
 
   const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null);
 
@@ -68,7 +75,11 @@ function App() {
     };
 
     setPatients((prev) => [newPatient, ...prev]);
-    setShowModal(false);
+    setMessage("✓ Patient added successfully");
+
+    setTimeout(() => {
+      setMessage("");
+    }, 3000); setShowModal(false);
   };
 
   const handleSavePatient = (data: {
@@ -88,6 +99,10 @@ function App() {
             : patient
         )
       );
+      setMessage("✓ Patient updated successfully");
+      setTimeout(() => {
+        setMessage("");
+      }, 3000); setShowModal(false);
     } else {
       handleAddPatient(data);
     }
@@ -99,26 +114,33 @@ function App() {
   return (
     <div>
       <h1>Patient Data Management</h1>
-
+      <Toast message={message} />
       <div className="toolbar">
         <p className="patient-count">
           {patients.length} patients
         </p>
 
         <div className="search-row">
-          <input
-            className="search-bar"
-            placeholder="Search patient..."
+          <SearchBar
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={setSearch}
+            placeholder="Search patient..."
           />
 
-          <select
+          <Dropdown
             value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}
-          >            <option value="newest">Newest first</option>
-            <option value="oldest">Oldest first</option>
-          </select>
+            onChange={setSortOrder}
+            options={[
+              {
+                value: "newest",
+                label: "Newest first",
+              },
+              {
+                value: "oldest",
+                label: "Oldest first",
+              },
+            ]}
+          />
 
           <button
             className="add-button"

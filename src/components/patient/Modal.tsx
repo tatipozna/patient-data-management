@@ -1,3 +1,5 @@
+import "../../styles/modal.css";
+
 interface Props {
   isOpen: boolean;
   title: string;

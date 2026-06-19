@@ -1,3 +1,5 @@
+import "../../styles/button.css";
+
 interface Props {
   children: React.ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void; variant?: "primary" | "secondary";

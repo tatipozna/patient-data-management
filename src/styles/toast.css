@@ -1,0 +1,21 @@
+.success-toast {
+  position: fixed;
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #1e293b;
+  border: 2px solid #38bdf8;
+
+  color: white;
+  padding: 20px 36px;
+
+  border-radius: 18px;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  box-shadow: 0 10px 30px rgba(56,189,248,.25);
+
+  z-index: 9999;
+}

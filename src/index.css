@@ -1,27 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  padding: 32px;
-}
-
 h1 {
   text-align: center;
   margin-bottom: 40px;
   color: white;
   font-size: 60px;
   font-weight: 800;
-}
-
-.patients-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 
 .toolbar {
@@ -45,7 +27,7 @@ h1 {
 .search-bar {
   flex: 1;
   padding: 14px 18px;
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  border: 1px solid rgba(139,92,246,.25);
   border-radius: 14px;
   background: var(--card);
   color: white;
@@ -64,11 +46,11 @@ h1 {
 .toolbar select {
   background: var(--card);
   color: white;
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  border: 1px solid rgba(139,92,246,.3);
   border-radius: 14px;
-  padding: 14px 18px;
   min-width: 180px;
   cursor: pointer;
+  padding: 14px 50px 14px 18px;
 }
 
 .toolbar select:focus {
@@ -76,101 +58,12 @@ h1 {
   border-color: #8b5cf6;
 }
 
-.patient-card {
-  background: var(--card);
-  border-radius: 20px;
-  padding: 16px 20px;
-  transition: all 0.25s ease;
-}
-
-.patient-card:hover {
-  background: var(--card-hover);
-  transform: translateY(-2px);
-}
-
-.patient-header {
+.patients-container {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.patient-header img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.patient-info {
-  flex: 1;
-}
-
-.patient-info h3 {
-  color: white;
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-
-.patient-meta p {
-  margin-bottom: 6px;
-  color: white;
-  font-size: 14px;
-}
-
-.patient-meta span {
-  color: #8b5cf6;
-  font-weight: 700;
-}
-
-.patient-actions {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.patient-header button:hover {
-  background: #7c5cff;
-}
-
-.patient-details {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  font-size: 14px;
-}
-
-.detail-group {
-  margin-bottom: 24px;
-}
-
-.detail-group span {
-  display: block;
-  color: #8b5cf6;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.detail-group p {
-  color: white;
-  line-height: 1.8;
-  font-size: 14px;
-}
-
-.detail-group a {
-  display: inline-block;
-  background: #7c3aed;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.2s;
-}
-
-.detail-group a:hover {
-  background: #8b5cf6;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .empty-state {
@@ -182,160 +75,5 @@ h1 {
 }
 
 .add-button {
-  display: block;
   margin-left: auto;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 14px;
-  padding: 14px 20px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.add-button:hover {
-  background: #7c5cff;
-}
-
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  z-index: 1000;
-}
-
-.modal {
-  width: 500px;
-  max-width: 90%;
-
-  background: var(--card);
-  border-radius: 20px;
-
-  padding: 24px;
-
-  border: 1px solid rgba(139, 92, 246, 0.2);
-}
-
-.modal h2 {
-  margin-bottom: 16px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.form-group label {
-  color: #8b5cf6;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.form-group input,
-.form-group textarea {
-  background: #111827;
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  border-radius: 10px;
-  padding: 12px;
-  color: white;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #8b5cf6;
-}
-
-.modal-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.primary-button {
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.primary-button:hover {
-  background: #7c5cff;
-}
-
-.secondary-button {
-  background: transparent;
-  color: white;
-  border: 1px solid rgba(139, 92, 246, 0.4);
-  border-radius: 12px;
-  padding: 12px 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.secondary-button:hover {
-  border-color: #8b5cf6;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.modal-close {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.error-message {
-  color: #ef4444;
-  font-size: 13px;
-  margin-top: 4px;
-}
-
-.edit-button {
-  background: #7c3aed;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.edit-button:hover {
-  background: #8b5cf6;
-}
-
-.expand-button {
-  border: none;
-  background: var(--primary);
-  color: white;
-  width: 50px;
-  height: 50px;
-  font-size: 12px;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.expand-button:hover {
-  background: #7c5cff;
 }
