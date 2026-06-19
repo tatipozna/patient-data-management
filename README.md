@@ -45,21 +45,15 @@ src/
 * Reusable components were created for buttons, modals, forms, dropdowns, search inputs and notifications.
 * Styling was organized into separate CSS files by responsibility.
 * Form validation is handled inside the PatientForm component.
-* Patient creation and edition are managed locally since the provided API does not persist changes.
+* Patient creation and editing are managed locally since the provided API does not persist changes.
 * Patient deletion includes a confirmation modal before removing records.
 
 ## Installation and Setup
-1. Clone the repository 
-```bash
-git clone https://github.com/tatipozna/patient-data-management.git
-```
+1. Extract the project files.
 
-2. Open the project:
-```bash
-cd patient-data-management
-```
+2. Open a terminal in the project folder.
 
-### Install dependencies:
+3. ### Install dependencies:
 ```bash
 npm install
 ```
