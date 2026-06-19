@@ -14,6 +14,7 @@ The application was built with a component-based architecture and custom reusabl
 * Sort patients by creation date
 * Add new patients
 * Edit existing patients
+* Delete patients
 * Form validation
 * Toast notifications
 * Responsive design
@@ -45,6 +46,7 @@ src/
 * Styling was organized into separate CSS files by responsibility.
 * Form validation is handled inside the PatientForm component.
 * Patient creation and edition are managed locally since the provided API does not persist changes.
+* Patient deletion includes a confirmation modal before removing records.
 
 ## Installation and Setup
 1. Clone the repository 
