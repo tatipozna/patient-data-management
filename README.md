@@ -53,7 +53,7 @@ src/
 
 2. Open a terminal in the project folder.
 
-3. ### Install dependencies:
+3. Install dependencies:
 ```bash
 npm install
 ```
