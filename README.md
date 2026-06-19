@@ -46,8 +46,13 @@ src/
 * Patient creation and edition are managed locally since the provided API does not persist changes.
 
 ## Installation and Setup
-1. Clone the repository: git clone (https://github.com/tatipozna/patient-data-management.git)
-2. cd patient-data-management
+1. Clone the repository 
+```bash
+git clone (https://github.com/tatipozna/patient-data-management.git)
+
+2. Open the project:
+```bash
+cd patient-data-management
 
 ### Install dependencies:
 ```bash
