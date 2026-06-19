@@ -9,7 +9,6 @@ import Toast from "./components/ui/Toast";
 import SearchBar from "./components/ui/SearchBar";
 import Dropdown from "./components/ui/Dropdown";
 import "./index.css";
-import "./styles/global.css";
 import "./styles/responsive.css";
 
 function App() {
