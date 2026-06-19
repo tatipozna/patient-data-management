@@ -5,9 +5,11 @@ import "../../styles/patient-card.css";
 interface Props {
   patient: Patient;
   onEdit: (patient: Patient) => void;
+  onDelete: (id: string) => void;
+
 }
 
-function PatientCard({ patient, onEdit }: Props) {
+function PatientCard({ patient, onEdit, onDelete }: Props) {
   const [expanded, setExpanded] = useState(false);
   return (
     <div
@@ -46,6 +48,16 @@ function PatientCard({ patient, onEdit }: Props) {
             }}
           >
             Edit
+          </button>
+
+          <button
+            className="delete-button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onDelete(patient.id);
+            }}
+          >
+            Delete
           </button>
 
           <button

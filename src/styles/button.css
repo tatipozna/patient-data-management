@@ -43,3 +43,17 @@
 .add-button:hover {
   background: #7c5cff;
 }
+
+.delete-button {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: #ef4444;
+}

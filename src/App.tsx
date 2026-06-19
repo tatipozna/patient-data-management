@@ -19,6 +19,8 @@ function App() {
   const [sortOrder, setSortOrder] = useState("newest");
   const [showModal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [patientToDelete, setPatientToDelete] = useState<Patient | null>(null);
 
   const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null);
 
@@ -111,6 +113,30 @@ function App() {
     setSelectedPatient(null);
   };
 
+  const openDeleteModal = (patient: Patient) => {
+    setPatientToDelete(patient);
+    setShowDeleteModal(true);
+  };
+
+  const handleDeletePatient = () => {
+    if (!patientToDelete) return;
+
+    setPatients((prev) =>
+      prev.filter(
+        (patient) => patient.id !== patientToDelete.id
+      )
+    );
+
+    setMessage("✓ Patient deleted successfully");
+
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
+
+    setShowDeleteModal(false);
+    setPatientToDelete(null);
+  };
+
   return (
     <div>
       <h1>Patient Data Management</h1>
@@ -167,6 +193,13 @@ function App() {
                 setSelectedPatient(patient);
                 setShowModal(true);
               }}
+              onDelete={(id) => {
+                const patient = patients.find((p) => p.id === id);
+
+                if (patient) {
+                  openDeleteModal(patient);
+                }
+              }}
             />
           ))
         )}
@@ -185,6 +218,33 @@ function App() {
           patient={selectedPatient ?? undefined}
           onSubmit={handleSavePatient}
         />
+      </Modal>
+
+      <Modal
+        isOpen={showDeleteModal}
+        title="Delete Patient"
+        onClose={() => setShowDeleteModal(false)}
+      >
+        <p>
+          Are you sure you want to delete{" "}
+          <strong>{patientToDelete?.name}</strong>?
+        </p>
+
+        <div className="modal-actions">
+          <button
+            className="secondary-button"
+            onClick={() => setShowDeleteModal(false)}
+          >
+            Cancel
+          </button>
+
+          <button
+            className="delete-button"
+            onClick={handleDeletePatient}
+          >
+            Delete
+          </button>
+        </div>
       </Modal>
 
     </div>
